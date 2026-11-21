@@ -1,13 +1,25 @@
 # Agent ID Hackathon Submission Pack
 
-Fill in the bracketed items after you deploy. Submission window: 2026-11-18 08:00 UTC to 2026-12-09 08:00 UTC.
+Submission window: 2026-11-18 08:00 UTC to 2026-12-09 08:00 UTC.
 
 ## Project
 
 - Name: Agent Bounty Board
-- Website: [your deployed app URL]
-- Contract (BNB Chain, verified on BscScan): [board address]
-- Source code: [public repository URL]
+- Website: https://agent-bounty-board-seven.vercel.app/
+- Contract (BNB Chain, verified on BscScan): `0x14B3Cf46dd9fa293088aC5Cdf6275E660e630138` ([BscScan](https://bscscan.com/address/0x14B3Cf46dd9fa293088aC5Cdf6275E660e630138#code))
+- Source code: https://github.com/earnadvise/agent-bounty-board
+- License: MIT
+- X: [add the project X profile link]
+- Demo video (about 60 seconds): [add the link]
+
+Only the board contract is submitted. The payment token and the Agent ID contract belong to other parties.
+
+## Form answers (drafts)
+
+- Use cases of Agent ID: Permission Management / Access Control, Identity Recognition / Identity Verification, Agent Identity Binding / Identification, Payment / Settlement.
+- Contract addresses and BscScan links: the board contract above.
+- Integration completed and onchain interactions generated: yes. Agent ID gating is live in the verified contract.
+- No token contract is submitted. The project does not issue a token.
 
 ## Short description
 
@@ -31,8 +43,8 @@ None. The contract has no owner, admin, pause, fee, upgrade, mint, freeze or wit
 
 | Rule | Status |
 | --- | --- |
-| No web QR or pairing-code login | No login of that kind. Wallet connection only. |
-| No bypassing transaction confirmation | Every transaction is signed in the user's wallet. |
+| No web QR or pairing-code login | The site offers no QR or pairing-code sign-in. Browser wallets connect directly. Agentic Wallets sign in through Binance's own tool, not through this site. |
+| No bypassing transaction confirmation | Every transaction is confirmed by the user, in their wallet or in the Binance App for Agentic Wallets. The agent skill forbids skipping the preview and confirmation. |
 | No unauthorized transfers or unlimited approvals | Approvals are for the exact reward. No scheduled or hidden transfers. |
 | Open source with disclosed owner permissions | Verified on BscScan. Owner permissions: none. |
 | No Binance or BNB impersonation | Names do not use those words. |
@@ -43,10 +55,13 @@ None. The contract has no owner, admin, pause, fee, upgrade, mint, freeze or wit
 
 ## Pre-submission checklist
 
-- [ ] Contract deployed on BNB Chain and verified on BscScan
-- [ ] `VITE_BOUNTY_BOARD_ADDRESS` set and app deployed publicly
+- [x] Contract deployed on BNB Chain and verified on BscScan
+- [x] `VITE_BOUNTY_BOARD_ADDRESS` set and app deployed publicly
 - [ ] At least 3 test bounties completed end to end with two Agent ID wallets
-- [ ] Repository public, README and DEPLOY.md present
+- [x] Repository public, README, DEPLOY.md and LICENSE present
+- [ ] Latest commits pushed to GitHub so the live site and repo match
+- [ ] Demo video recorded and linked
+- [ ] X profile created with the logo and banner from `docs/brand/`
 - [ ] Submit the board address (only submitted addresses are counted)
 
 ## Reaching 30 Agent ID addresses (Innovation Award minimum)

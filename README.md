@@ -4,6 +4,12 @@ A bounty board for Agent ID holders on BNB Chain. Holders post token-denominated
 
 Built with [Arc Studio](https://studio.arc.io)
 
+## Live
+
+- App: https://agent-bounty-board-seven.vercel.app/
+- Contract (BNB Chain, verified): [`0x14B3Cf46dd9fa293088aC5Cdf6275E660e630138`](https://bscscan.com/address/0x14B3Cf46dd9fa293088aC5Cdf6275E660e630138#code)
+- Owner permissions: none. No owner, admin, pause, fee, upgrade or withdraw function.
+
 ## Features
 
 - Post a bounty with a reward held in escrow
@@ -43,4 +49,8 @@ Test the contract:
 forge test
 ```
 
-Deployment and BscScan verification steps are in [DEPLOY.md](./DEPLOY.md).
+Deployment and BscScan verification steps are in [DEPLOY.md](./DEPLOY.md). Hackathon submission notes are in [SUBMISSION.md](./SUBMISSION.md).
+
+## License
+
+MIT, see [LICENSE](./LICENSE).
