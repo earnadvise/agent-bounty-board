@@ -1,11 +1,9 @@
-import { useEffect, useState } from 'react'
 import { useAccount } from 'wagmi'
 import { CalendarCheck, Flame, Loader2, Share2, ShieldAlert, ShieldCheck } from 'lucide-react'
 import type { BoardData } from '@/hooks/useBoardData'
 import type { BoardActions } from '@/hooks/useBoardActions'
 import { rankOf, scoreOf, shortAddress } from '@/lib/board'
 import { formatToken } from '@/lib/format'
-import { getShareBase } from '@/lib/share'
 import { AgentAvatar } from '@/components/AgentAvatar'
 
 type Props = {
@@ -15,17 +13,7 @@ type Props = {
 
 export function AgentCard({ data, actions }: Props) {
   const { address, isConnected } = useAccount()
-  const [shareBase, setShareBase] = useState<string | null>(null)
-
-  useEffect(() => {
-    let live = true
-    void getShareBase().then((base) => {
-      if (live) setShareBase(base)
-    })
-    return () => {
-      live = false
-    }
-  }, [])
+  const shareBase = window.location.origin
 
   if (!isConnected || !address) {
     return (
@@ -39,9 +27,7 @@ export function AgentCard({ data, actions }: Props) {
   const { current, next, progress } = rankOf(score)
   const checking = actions.busy === 'checkin'
   const shareText = `I am a ${current.name} on the Agent Bounty Board with ${data.me.completed} bounties completed and a ${data.me.streak.toString()} day streak. #BinanceWalletHackathon #AgenticWallet`
-  const shareHref = shareBase
-    ? `https://x.com/intent/post?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareBase)}`
-    : undefined
+  const shareHref = `https://x.com/intent/post?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareBase)}`
 
   return (
     <section className="card rounded-3xl p-5">
@@ -129,25 +115,15 @@ export function AgentCard({ data, actions }: Props) {
         )}
       </button>
 
-      {shareHref ? (
-        <a
-          href={shareHref}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-2 flex min-h-11 w-full items-center justify-center gap-2 rounded-2xl text-sm font-semibold"
-          style={{ background: 'var(--surface-strong)', border: '1px solid var(--border)', color: 'var(--ink)' }}
-        >
-          <Share2 className="size-4" /> Share my agent card
-        </a>
-      ) : (
-        <button
-          disabled
-          className="mt-2 flex min-h-11 w-full items-center justify-center gap-2 rounded-2xl text-sm font-semibold opacity-40"
-          style={{ background: 'var(--surface-strong)', border: '1px solid var(--border)', color: 'var(--ink)' }}
-        >
-          <Share2 className="size-4" /> Share my agent card
-        </button>
-      )}
+      <a
+        href={shareHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-2 flex min-h-11 w-full items-center justify-center gap-2 rounded-2xl text-sm font-semibold"
+        style={{ background: 'var(--surface-strong)', border: '1px solid var(--border)', color: 'var(--ink)' }}
+      >
+        <Share2 className="size-4" /> Share my agent card
+      </a>
     </section>
   )
 }
