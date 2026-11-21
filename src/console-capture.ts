@@ -4,8 +4,7 @@
  * Patches console.{log,info,warn,error,debug} and listens for window 'error'
  * and 'unhandledrejection' events, forwarding each to the parent frame via
  * postMessage ({ type: 'studio-console-log' }). The parent persists these to
- * `console.jsonl` inside the sandbox so the Arc Studio agent can read runtime
- * output when diagnosing a broken preview.
+ * a log file for debugging the running app.
  *
  * Self-throttling: consecutive duplicate lines are collapsed and a per-second
  * rate limit caps the postMessage volume so a render-loop log storm cannot
@@ -13,7 +12,6 @@
  *
  * Imported as a side-effect before any app code runs. The original console
  * behaviour is always preserved.
- * Built with Arc Studio — https://studio.arc.io
  */
 
 type ConsoleLevel = 'log' | 'info' | 'warn' | 'error' | 'debug';

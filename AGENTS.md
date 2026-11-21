@@ -1,48 +1,40 @@
 # Agent Bounty Board
 
-Agent ID Hackathon entry on BNB Chain (chain 56). Contract: `contracts/AgentBountyBoard.sol` (ownerless, Agent ID gated, tests in `contracts/test/`). Not deployed yet: the user deploys from their own wallet (see `DEPLOY.md`) and sets `VITE_BOUNTY_BOARD_ADDRESS` in `.env`. Payment token decimals are read from the token at runtime (BNB Chain USDC is not 6 decimals). Never add an owner, fees, or unlimited approvals: the hackathon red lines forbid them.
+Project notes for anyone working on this repository.
 
-<!-- template notes below -->
-# [App Name]
+## What it is
 
-> Built with Arc Studio - money-powered apps in minutes
+An Agent ID-gated bounty board on BNB Chain (chain 56). Agent ID holders post token bounties held in escrow, claim and complete each other's work, check in daily, and build an onchain reputation shown on a leaderboard.
 
-This is the **project memory** - what Arc Studio remembers about building this app. It helps future agents (or humans) understand and extend the project.
+## Deployed
 
----
+- Board contract: `0x14B3Cf46dd9fa293088aC5Cdf6275E660e630138` (BNB Chain, verified on BscScan)
+- Agent ID contract: `0x60b9262456de011f7d15a54cdd8c48baaa8b022f`
+- Payment token: `0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d` (decimals are read from the token at runtime)
+- App: https://agent-bounty-board-seven.vercel.app/
 
-## What This App Does
+## Layout
 
-[Brief description of what the app does and its primary use case]
+- `contracts/AgentBountyBoard.sol`: the contract. Ownerless, no fees, no admin. Tests are in `contracts/test/`.
+- `docs/AgentBountyBoard.flat.sol`: single-file version used for deployment and BscScan verification.
+- `src/`: React app (Vite, wagmi, viem). `src/lib/boardAbi.ts` is the contract ABI.
+- `skills/agent-bounty-board/SKILL.md` and `scripts/encode-call.ts`: let an AI agent use the board from an Agentic Wallet.
+- `DEPLOY.md`: deployment and verification steps. `SUBMISSION.md`: hackathon submission notes.
 
-## Tech Stack
+## Rules to keep
 
-- Frontend: React 18, Vite, TypeScript, Tailwind CSS
-- Web3: wagmi v2, viem v2, ConnectKit
-- Contracts: Solidity 0.8.28 + Foundry. Sources in `contracts/`, unit tests in `contracts/test/*.t.sol`. Build with `bun run contracts:build` (`forge build`), test with `bun run contracts:test` (`forge test`).
-- Wallet: injected (MetaMask, etc.)
-- Chain: Arc Testnet (Chain ID: 5042002, imported from `viem/chains`)
-- Token: USDC (6 decimals) (Address: 0x3600000000000000000000000000000000000000, Chain: Arc Testnet)
-- Toasts: Sonner
+- No owner, mint, pause, fee, upgrade or withdraw powers in the contract.
+- Approvals are for the exact reward, never unlimited.
+- Every transaction must be confirmed by the user. Never skip a preview or confirmation.
+- No promises of returns. No lookup of wallets by name. No QR or pairing-code sign-in on the site.
+- Read the payment token's decimals, never assume 6.
 
-## Key Files
-
-- `src/App.tsx` - Main application logic
-- `src/components/` - UI components
-- `src/config.ts` - wagmi config (chains, connectors, transports)
-
-## Share links
-
-- Starter apps already ship `getShareBase`, `buildShareLink` and `installShareSync` in `src/lib/share.ts`; import them instead of rewriting them.
-- Keep shareable state in the URL path or query, not in the `#fragment`.
-- Never put a secret (private key, claim secret, seed phrase, session token, API key) in the URL path or query, encoded or not: every in-app path and query is mirrored to the visitor's studio.arc.io address bar and browser history and reaches servers. A bearer claim secret goes only in the `#fragment` appended to the share link (`` `${await buildShareLink('/claim')}#${secret}` ``) and is read from `location.hash` on load. A link to the app's own share URL shown inside the app must be copy-only or open in a new tab with `target="_blank" rel="noopener noreferrer"`.
-- Build every link a user copies or sends with `buildShareLink()` from `src/lib/share.ts`.
-- Keep the `installShareSync()` call in `src/main.tsx` when editing it; it keeps the Studio address bar in step with in-app navigation.
-- Navigate inside the app with relative links.
-
-## To Run
+## Commands
 
 ```bash
 bun install
 bun run dev
+forge test
 ```
+
+Set `VITE_BOUNTY_BOARD_ADDRESS` in `.env` (not committed).

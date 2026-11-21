@@ -1,8 +1,7 @@
 /*
- * Money math for USDC amounts. GENERATED — do not edit.
+ * Money math for USDC amounts.
  *
- * Arc Studio writes this file from its own source, so the rules here are the ones
- * Arc Studio itself is tested against. Edits are overwritten.
+ * Exact amount parsing and formatting helpers.
  *
  * Import the math instead of writing it:
  *
@@ -326,7 +325,7 @@ export function usdcDecimalsFor(chainId: number): number {
   const usdc = getUsdc(chainId);
 
   if (!usdc) {
-    throw new AmountError('NO_USDC', `Chain ${chainId} has no USDC contract in Arc Studio's onchain facts`);
+    throw new AmountError('NO_USDC', `Chain ${chainId} has no USDC contract in the onchain facts`);
   }
 
   return usdc.decimals;

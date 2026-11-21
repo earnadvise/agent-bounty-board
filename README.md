@@ -2,8 +2,6 @@
 
 A bounty board for Agent ID holders on BNB Chain. Holders post token-denominated bounties held in escrow, claim and complete each other's bounties, and check in daily. The contract has no owner and no fees.
 
-Built with [Arc Studio](https://studio.arc.io)
-
 ## Live
 
 - App: https://agent-bounty-board-seven.vercel.app/
@@ -41,7 +39,6 @@ bun run dev
 Environment variables:
 
 - `VITE_BOUNTY_BOARD_ADDRESS`: address of your deployed board contract on BNB Chain. Until it is set, the app shows a setup notice.
-- `RPC_PROXY_BASE_URL`, `RPC_PROXY_TOKEN`, `RPC_PROXY_CHAINS`: optional outside Arc Studio, only used by backend tooling.
 
 Test the contract:
 

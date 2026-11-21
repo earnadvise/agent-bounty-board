@@ -1,7 +1,6 @@
 /*
- * Circle transaction states and the poller for them. GENERATED — do not edit.
+ * Circle transaction states and the poller for them.
  *
- * Arc Studio writes this file from its own source. Edits are overwritten.
  *
  *   import { waitForSuccessfulTransaction, isTerminalTransactionState } from '@/onchain-wait';
  *
