@@ -7,6 +7,7 @@ import { AgentCard } from '@/components/AgentCard'
 import { AgentHub } from '@/components/AgentHub'
 import { PostSheet } from '@/components/PostSheet'
 import { Disclosures } from '@/components/Disclosures'
+import { BrandKit } from '@/components/BrandKit'
 import { SetupNotice } from '@/components/SetupNotice'
 import { useBoardData } from '@/hooks/useBoardData'
 import { useBoardActions } from '@/hooks/useBoardActions'
@@ -65,6 +66,7 @@ export default function App() {
         )}
 
         <Disclosures />
+        <BrandKit />
       </main>
 
       <PostSheet open={sheetOpen} onClose={() => setSheetOpen(false)} data={data} actions={actions} />
