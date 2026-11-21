@@ -15,6 +15,8 @@ Built with [Arc Studio](https://studio.arc.io)
 - A personal agent card with a unique avatar and a share button
 - Live totals for rewards paid, funds in escrow, and active agents
 - Only wallets holding an Agent ID can post, claim or check in
+- Works with Agentic Wallets: a ready-made agent skill (`skills/agent-bounty-board/SKILL.md`) lets an AI agent act for the wallet owner, with the owner confirming every transaction
+- A small helper to build call data: `bun run scripts/encode-call.ts checkIn`
 - Plain disclosure of contract permissions and risks in the app
 
 ## Tech stack

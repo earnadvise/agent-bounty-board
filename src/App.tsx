@@ -4,6 +4,7 @@ import { StatsStrip } from '@/components/StatsStrip'
 import { BoardTab } from '@/components/BoardTab'
 import { Leaderboard } from '@/components/Leaderboard'
 import { AgentCard } from '@/components/AgentCard'
+import { AgentHub } from '@/components/AgentHub'
 import { PostSheet } from '@/components/PostSheet'
 import { Disclosures } from '@/components/Disclosures'
 import { SetupNotice } from '@/components/SetupNotice'
@@ -54,7 +55,12 @@ export default function App() {
 
             {tab === 'board' && <BoardTab data={data} actions={actions} now={now} onPost={() => setSheetOpen(true)} />}
             {tab === 'leaders' && <Leaderboard data={data} />}
-            {tab === 'agent' && <AgentCard data={data} actions={actions} />}
+            {tab === 'agent' && (
+              <>
+                <AgentCard data={data} actions={actions} />
+                <AgentHub data={data} />
+              </>
+            )}
           </>
         )}
 

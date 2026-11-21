@@ -65,6 +65,13 @@ export function AgentCard({ data, actions }: Props) {
         </div>
       </div>
 
+      {data.isHolder === false && (
+        <p className="inner mt-4 rounded-2xl p-3 text-xs text-pretty" style={{ color: 'var(--ink-2)' }}>
+          This wallet has no Agent ID. If your Agent ID belongs to an Agentic Wallet, that wallet acts through your AI
+          agent, so use the "Using an Agentic Wallet?" section below.
+        </p>
+      )}
+
       <div className="mt-5">
         <div className="flex items-baseline justify-between text-xs" style={{ color: 'var(--muted)' }}>
           <span className="tabular-nums">
