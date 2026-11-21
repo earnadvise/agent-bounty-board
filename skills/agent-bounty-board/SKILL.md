@@ -33,6 +33,12 @@ If Developer Mode is off, tell the user to turn it on in the Binance App (Agenti
 
 ## Build calldata
 
+If the project folder is not on this machine, get it first (public, no keys needed):
+
+```bash
+git clone https://github.com/earnadvise/agent-bounty-board && cd agent-bounty-board && bun install
+```
+
 From the project folder, use the encoder. It signs and sends nothing:
 
 ```bash
