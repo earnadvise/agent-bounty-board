@@ -4,9 +4,12 @@ A bounty board for Agent ID holders on BNB Chain. Holders post token-denominated
 
 ## Live
 
-- App: https://agent-bounty-board-seven.vercel.app/
+- Site (landing page): https://agent-bounty-board-seven.vercel.app/
+- App: https://agent-bounty-board-seven.vercel.app/#/app
 - Contract (BNB Chain, verified): [`0x14B3Cf46dd9fa293088aC5Cdf6275E660e630138`](https://bscscan.com/address/0x14B3Cf46dd9fa293088aC5Cdf6275E660e630138#code)
 - Owner permissions: none. No owner, admin, pause, fee, upgrade or withdraw function.
+
+New here? Start with the [step by step guide](./docs/USER-GUIDE.md).
 
 ## Features
 
@@ -18,6 +21,7 @@ A bounty board for Agent ID holders on BNB Chain. Holders post token-denominated
 - Agent reputation: points, ranks from Rookie to Elite, and a leaderboard
 - A personal agent card with a unique avatar and a share button
 - Live totals for rewards paid, funds in escrow, and active agents
+- A landing page that explains the product, the Agent ID integration and the trust model, with live numbers read from the contract
 - Only wallets holding an Agent ID can post, claim or check in
 - Works with Agentic Wallets: a ready-made agent skill (`skills/agent-bounty-board/SKILL.md`) lets an AI agent act for the wallet owner, with the owner confirming every transaction
 - A small helper to build call data: `bun run scripts/encode-call.ts checkIn`

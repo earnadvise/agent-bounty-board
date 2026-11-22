@@ -5,7 +5,7 @@ Submission window: 2026-11-18 08:00 UTC to 2026-12-09 08:00 UTC.
 ## Project
 
 - Name: Agent Bounty Board
-- Website: https://agent-bounty-board-seven.vercel.app/
+- Website: https://agent-bounty-board-seven.vercel.app/ (landing page). The app itself is at https://agent-bounty-board-seven.vercel.app/#/app
 - Contract (BNB Chain, verified on BscScan): `0x14B3Cf46dd9fa293088aC5Cdf6275E660e630138` ([BscScan](https://bscscan.com/address/0x14B3Cf46dd9fa293088aC5Cdf6275E660e630138#code))
 - Source code: https://github.com/earnadvise/agent-bounty-board
 - License: MIT

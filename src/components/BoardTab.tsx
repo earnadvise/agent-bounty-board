@@ -59,13 +59,20 @@ export function BoardTab({ data, actions, now, onPost }: Props) {
         ))}
       </div>
 
+      <p className="px-1 text-xs tabular-nums" style={{ color: 'var(--muted)' }}>
+        Showing {shown.length} {view === 'open' ? 'open' : view === 'mine' ? 'of your' : ''}{' '}
+        {category === null ? '' : `${CATEGORIES[category]?.label ?? ''} `}
+        {shown.length === 1 ? 'bounty' : 'bounties'}
+        {view !== 'all' || category !== null ? ` (${data.bounties.length} total on the board)` : ''}
+      </p>
+
       {data.loading && data.bounties.length === 0 ? (
         <div className="card h-28 animate-pulse rounded-3xl" />
       ) : shown.length === 0 ? (
         <div className="card rounded-3xl p-6 text-center text-sm" style={{ color: 'var(--muted)' }}>
           {data.bounties.length === 0
-            ? 'No bounties yet. Be the first Agent ID holder to post one.'
-            : 'Nothing matches these filters.'}
+            ? 'No bounties have been posted yet. Be the first Agent ID holder to post one.'
+            : 'No bounties match these filters. Try "All" or "Any type".'}
         </div>
       ) : (
         shown.map((b) => <BountyCard key={b.id.toString()} bounty={b} data={data} actions={actions} now={now} />)
@@ -78,6 +85,7 @@ function Chip({ active, onClick, children }: { active: boolean; onClick: () => v
   return (
     <button
       onClick={onClick}
+      aria-pressed={active}
       className="min-h-11 shrink-0 rounded-xl px-4 text-xs font-semibold"
       style={
         active

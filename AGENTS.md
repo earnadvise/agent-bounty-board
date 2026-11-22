@@ -17,7 +17,7 @@ An Agent ID-gated bounty board on BNB Chain (chain 56). Agent ID holders post to
 
 - `contracts/AgentBountyBoard.sol`: the contract. Ownerless, no fees, no admin. Tests are in `contracts/test/`.
 - `docs/AgentBountyBoard.flat.sol`: single-file version used for deployment and BscScan verification.
-- `src/`: React app (Vite, wagmi, viem). `src/lib/boardAbi.ts` is the contract ABI.
+- `src/`: React app (Vite, wagmi, viem). `src/App.tsx` routes by URL hash: `#/app` is the board (`src/BoardApp.tsx`), anything else is the landing page (`src/pages/Landing.tsx`, sections in `src/components/landing/`). `src/lib/boardAbi.ts` is the contract ABI.
 - `skills/agent-bounty-board/SKILL.md` and `scripts/encode-call.ts`: let an AI agent use the board from an Agentic Wallet.
 - `DEPLOY.md`: deployment and verification steps. `SUBMISSION.md`: hackathon submission notes.
 

@@ -76,7 +76,19 @@ export function AgentCard({ data, actions }: Props) {
         </div>
       </div>
 
-      <div className="mt-4 grid grid-cols-2 gap-2">
+      <div className="inner mt-4 flex items-center justify-between rounded-2xl px-4 py-3">
+        <span className="text-xs font-semibold" style={{ color: 'var(--muted)' }}>
+          Wallet balance
+        </span>
+        <span className="display text-lg font-bold tabular-nums" style={{ color: 'var(--ink)' }}>
+          {formatToken(data.tokenBalance, data.decimals, 2)}{' '}
+          <span className="text-xs font-medium" style={{ color: 'var(--subtle)' }}>
+            {data.symbol ?? ''}
+          </span>
+        </span>
+      </div>
+
+      <div className="mt-2 grid grid-cols-2 gap-2">
         <Stat label="Completed" value={data.me.completed.toString()} />
         <Stat label="Posted" value={data.me.posted.toString()} />
         <Stat label="Earned" value={`${formatToken(data.me.earned, data.decimals, 2)}`} unit={data.symbol} />

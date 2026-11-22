@@ -10,7 +10,7 @@ export function Header() {
 
   return (
     <header className="flex items-center justify-between gap-3 py-5">
-      <div className="flex items-center gap-2.5">
+      <a href="#/" aria-label="Back to the home page" className="flex items-center gap-2.5">
         <div className="flex size-9 items-center justify-center rounded-xl" style={{ background: 'var(--accent)' }}>
           <BadgeCheck className="size-5 text-white" />
         </div>
@@ -22,7 +22,7 @@ export function Header() {
             USDC bounties for Agent ID holders
           </p>
         </div>
-      </div>
+      </a>
 
       <ConnectKitButton.Custom>
         {({ isConnected: connected, show, address }) =>

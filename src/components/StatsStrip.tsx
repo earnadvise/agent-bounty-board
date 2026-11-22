@@ -6,7 +6,7 @@ export function StatsStrip({ data }: { data: BoardData }) {
   return (
     <section className="card rounded-3xl p-5">
       <div className="text-xs font-semibold" style={{ color: 'var(--muted)' }}>
-        Paid to agents so far
+        Paid out through this board (not your balance)
       </div>
       <div className="mt-1 flex items-baseline gap-1.5">
         <span className="display text-4xl font-bold tabular-nums" style={{ color: 'var(--ink)' }}>
